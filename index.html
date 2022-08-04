@@ -8,12 +8,28 @@
   <title>Document</title>
 </head>
 <body>
-  <div>
-    <p>Your twitter id</p>
+  <div class="main_div">
+    <p id="users_number">Script users: 'Wait'</p>
+    <p>write a hashtag</p>
     <input type="text" placeholder="Write it here" id="input_data"/>
-    <button id="send_data" onclick="">Done</button>
-    <h2 id="States">States: Not Send</h2>
+    <fieldset>
+      <legend>Script status</legend>  
+      <div>
+        <input type="radio" id="Run" name="drone" value="Run"
+               checked>
+        <label for="Run">Run</label>
+      </div>
+  
+      <div>
+        <input type="radio" id="Stop" name="drone" value="Stop">
+        <label for="Stop">Stop</label>
+      </div>
+
+  </fieldset>
+    <button id="send_data" onclick="displayRadioValue()">Done</button>
+    <h2 id="Status">status: Not Send</h2>
   </div>
   <script src="main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </html>

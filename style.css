@@ -1,6 +1,7 @@
 * {
   font-family: 'Courier New', Courier, monospace;
   margin: 0px;
+  color: yellow;
 }
 body {
   height: 100vh;
@@ -9,7 +10,10 @@ body {
   align-items: center;
   background-color: #2a2a2a;
 }
-div {
+#users_number {
+  margin-bottom: 15px;
+}
+.main_div {
   width: 250px;
   display: flex;
   flex-direction: column;
@@ -21,7 +25,7 @@ p {
   align-self: flex-start;
   font-size: 18px;
 }
-input {
+#input_data {
   width: 250px;
   outline: none;
   border: none;
@@ -33,10 +37,10 @@ input {
   color: white;
   transition: 0.5s;
 }
-input:focus {
+#input_data:focus {
   border-bottom: 2px solid #dd0404;
 }
-input::placeholder {
+#input_data::placeholder {
   color: white;
 }
 button {
@@ -66,4 +70,11 @@ h2 {
   margin-top: 25px;
   color: white;
   text-align: center
+}
+fieldset {
+  width: 220px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

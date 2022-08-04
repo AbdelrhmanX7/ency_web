@@ -1,1 +1,64 @@
-const _0x5003af=_0x53b2;(function(_0x462c98,_0x43ff35){const _0x4e460d=_0x53b2,_0x32795d=_0x462c98();while(!![]){try{const _0x211df6=-parseInt(_0x4e460d(0x164))/0x1+-parseInt(_0x4e460d(0x16a))/0x2+-parseInt(_0x4e460d(0x16b))/0x3*(parseInt(_0x4e460d(0x16c))/0x4)+parseInt(_0x4e460d(0x156))/0x5*(parseInt(_0x4e460d(0x16d))/0x6)+-parseInt(_0x4e460d(0x15c))/0x7*(parseInt(_0x4e460d(0x167))/0x8)+parseInt(_0x4e460d(0x173))/0x9+parseInt(_0x4e460d(0x16f))/0xa*(parseInt(_0x4e460d(0x170))/0xb);if(_0x211df6===_0x43ff35)break;else _0x32795d['push'](_0x32795d['shift']());}catch(_0x11ae19){_0x32795d['push'](_0x32795d['shift']());}}}(_0x39f8,0x7ad7a));const send_data=document[_0x5003af(0x168)](_0x5003af(0x159)),get_id=document[_0x5003af(0x168)](_0x5003af(0x166)),states=document[_0x5003af(0x168)]('States'),loaded_id=[];let encrypted='',decrypted='';function _0x39f8(){const _0x47179a=['4963PIFsTE','States:\x20Checking','color:\x20red','json','States:\x20PASSED\x201/2','States:\x20You\x20can\x20now\x20try\x20script','application/json','https://script-beta-default-rtdb.firebaseio.com/save_id.json','23090iwOvty','innerHTML','input_data','5776vSxDJE','getElementById','color:\x20yellow','413052fTPrAd','51lOMvXc','5988dCiAtU','2394828PzICAU','POST','136030ZnCUWl','242yedRyW','length','States:\x20Sorry\x20this\x20id\x20has\x20been\x20used\x20before','5145489KoFghz','click','style','5EATDtr','value','States:\x20PASSED\x202/2','send_data','push','color:\x20green'];_0x39f8=function(){return _0x47179a;};return _0x39f8();}async function getData(){const _0x184057=_0x5003af,_0x1f04c0=await fetch(_0x184057(0x163)),_0x3bce0a=await _0x1f04c0[_0x184057(0x15f)]();for(const _0x2810f4 in _0x3bce0a){loaded_id[_0x184057(0x15a)]({'Twitter_id':_0x3bce0a[_0x2810f4]['Twitter_id']});}}function _0x53b2(_0x1db273,_0x2537f5){const _0x39f8d7=_0x39f8();return _0x53b2=function(_0x53b2f7,_0x3ffa57){_0x53b2f7=_0x53b2f7-0x155;let _0x33b75c=_0x39f8d7[_0x53b2f7];return _0x33b75c;},_0x53b2(_0x1db273,_0x2537f5);}getData();async function addData(_0x4379fb){const _0x4e0280=_0x5003af;states[_0x4e0280(0x165)]=_0x4e0280(0x158),states['style']=_0x4e0280(0x15b);const _0x3b8113=await fetch(_0x4e0280(0x163),{'method':_0x4e0280(0x16e),'body':JSON['stringify'](_0x4379fb),'headers':{'Content-Type':_0x4e0280(0x162)}});states[_0x4e0280(0x165)]=_0x4e0280(0x161),states[_0x4e0280(0x155)]='color:\x20green';}send_data['addEventListener'](_0x5003af(0x174),function(){const _0x10441c=_0x5003af;if(get_id[_0x10441c(0x157)][_0x10441c(0x171)]>0x0){states[_0x10441c(0x165)]=_0x10441c(0x15d),states[_0x10441c(0x155)]=_0x10441c(0x169);if(loaded_id[_0x10441c(0x171)]>0x0)for(let _0x321922=0x0;_0x321922<loaded_id[_0x10441c(0x171)];_0x321922++){loaded_id[_0x321922]['Twitter_id']!==get_id['value']?(addData({'Twitter_id':get_id['value']}),states[_0x10441c(0x165)]=_0x10441c(0x160),states[_0x10441c(0x155)]='color:\x20green'):(states[_0x10441c(0x165)]=_0x10441c(0x172),states['style']=_0x10441c(0x15e));}else addData({'Twitter_id':get_id[_0x10441c(0x157)]}),states[_0x10441c(0x165)]=_0x10441c(0x160),states['style']=_0x10441c(0x15b);}else states['innerHTML']='States:\x20plz\x20write\x20your\x20twitter\x20id',states[_0x10441c(0x155)]='color:\x20red';});
+let number_of_users = document.getElementById("users_number");
+
+let get_hashtag = document.getElementById("input_data");
+
+let status = document.getElementById("Status");
+
+let data_obj = {
+  Hashtag: "",
+  Script: "",
+  ip_client: ""
+};
+
+function displayRadioValue() {
+  if (get_hashtag.value.length !== 0) {
+    var ele = document.getElementsByName("drone");
+    data_obj.Hashtag = get_hashtag.value;
+
+    for (i = 0; i < ele.length; i++) {
+      if (ele[i].checked) {
+        console.log(ele[i].id);
+        data_obj.Script = ele[i].id;
+      }
+    }
+    send_Hashtag(data_obj)
+    status.style = "color: green";
+    status.innerHTML = "status: PASSED 1/2";
+  } else {
+    status.style = "color: red";
+    status.innerHTML = "status: write a correct hashtag";
+  }
+}
+
+async function send_Hashtag(sending_data) {
+  let res_ip = await fetch('https://api.ipify.org?format=json')
+  res_ip = await res_ip.json()
+  let data_ip = res_ip.ip
+  data_obj.ip_client = data_ip
+
+  status.innerHTML = "status: PASSED 2/2";
+  let send = await fetch(
+    "https://script-hashtag-default-rtdb.firebaseio.com/save_hashtag.json",
+    {
+      method: "POST",
+      Headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(sending_data)
+    }
+  );
+  status.innerHTML = "status: Done";
+}
+
+async function get_number_of_user() {
+  let respone = await fetch(
+    "https://script-beta-default-rtdb.firebaseio.com/save_id.json"
+  );
+  respone = await respone.json();
+  data = respone;
+  let save_data = [];
+  for (const key in data) {
+    save_data.push(data[key]["Twitter_id"]);
+  }
+  let unique_id = [...new Set(save_data)];
+  number_of_users.innerHTML = `Script users: ${unique_id.length} user`;
+}
+get_number_of_user();
